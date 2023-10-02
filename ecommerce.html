@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma Boutique en Ligne</title>
+    <!-- Inclure ici vos balises meta, liens CSS, scripts JavaScript, etc. -->
+   <link href= "ecoco.css" rel= "stylesheet" type= "text/css" >
+</head>
+<body>
+    <!-- En-tête du site -->
+    <header>
+        <h1>Ma Boutique en Ligne</h1>
+        <nav>
+            <ul>
+                 <li><a href="ace.html">Accueil</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Panier</a></li>
+                <li><a href="ace.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenu principal -->
+    <main>
+        <!-- Section des produits -->
+        <section class="products">
+		<!-- ... Autres éléments HTML de la page ... -->
+
+<!-- Section des produits -->
+<section class="products">
+    <!-- Produit 1 -->
+    <div class="product">
+        <img src="chass.png" alt="Produit 1">
+        <h2>Éclat de Lune</h2>
+        <p> Mystère d'Orient est un parfum envoûtant qui m'a transporté dans un voyage sensoriel fascinant. </p>
+        <p>Prix : $29.99</p>
+        <button onclick="ajouterAuPanier('Produit 1', 29.99)">Ajouter au Panier</button>
+    </div>
+
+    <!-- Produit 2 -->
+    <div class="product">
+        <img src="gant.png" alt="Produit 2">
+        <h2>Labyrinthe Enchanté</h2>
+        <p>Labyrinthe Enchanté est une expérience olfactive qui évoque un monde mystérieux et féerique. </p>
+        <p>Prix : $29.99</p>
+        <button onclick="ajouterAuPanier('Produit 2', 29.99)">Ajouter au Panier</button>
+    </div>
+	    <!-- Produit 3 -->
+    <div class="product">
+        <img src="aaa.png" alt="Produit 3">
+        <h2>Mystère d'Orient</h2>
+        <p>Éclat de Lune est une fragrance étonnante qui capture la beauté mystérieuse d'une nuit éclairée de la lune.</p>
+        <p>Prix : $29.99</p>
+        <button onclick="ajouterAuPanier('Produit 3', 29.99)">Ajouter au Panier</button>
+    </div>
+
+
+	
+
+    <!-- Ajoutez d'autres produits de la même manière -->
+</section>
+
+<!-- ... Autres éléments HTML de la page ... -->
+            <!-- Affichez ici vos produits avec des descriptions, des images, des prix, etc. -->
+        </section>
+    </main>
+ <!-- Panier -->
+    <div class="product">
+		<img src="panier.png" alt="panier">
+        <h2>Panier</h2>
+        <ul id="panier-liste">
+		 
+            <!-- Les éléments du panier seront ajoutés ici via JavaScript -->
+        </ul>
+        <p>Total : $<span id="total">0.00</span></p>
+    </div>
+	
+    <div class="product">
+	 <button><a href="formulaire.html" class="btnplayer">Payer</a></button>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+         
+
+		const panier = [];
+
+        function ajouterAuPanier(nomProduit, prixProduit) {
+            const produit = {
+                nom: nomProduit,
+                prix: prixProduit
+            };
+
+            panier.push(produit);
+            mettreAJourPanier();
+        }
+
+        function mettreAJourPanier() {
+            const panierListe = document.getElementById("panier-liste");
+            const totalElement = document.getElementById("total");
+            let total = 0;
+
+            // Efface le contenu du panier
+            panierListe.innerHTML = "";
+
+            // Met à jour le panier
+            panier.forEach(produit => {
+                const listItem = document.createElement("li");
+                listItem.textContent = produit.nom + " - $" + produit.prix.toFixed(2);
+                panierListe.appendChild(listItem);
+                total += produit.prix;
+            });
+
+            // Met à jour le total
+            totalElement.textContent = total.toFixed(2);
+        }
+    </script>
+</body>
+</html>
+    <!-- Pied de page du site -->
+    <footer>
+        <p>&copy; 2023 Ma Boutique en Ligne</p>
+    </footer>
+</body>
+</html>
